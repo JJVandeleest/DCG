@@ -99,6 +99,8 @@ EstClust <- function(Sim, MaxIt=1000, m=5) {
   ## a total of MaxIt random walks.  Return this matrix.
 
   Ensemble <- Ensemble/MaxIt
+  rownames(Ensemble) <- rownames(Sim)
+  colnames(Ensemble) <- colnames(Sim)
   return(Ensemble)
 
 } ## end of function EstClust
