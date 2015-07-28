@@ -1,63 +1,87 @@
-
-#### [from Kevin's percolation code]
-#### head = TRUE indicates that there is a header row in the .csv file.
-setwd("C:/Users/Bri/Documents/BrianneDocuments/UCDavis/CNPRC/PostDocSocial Network Study/R code special/DCG R code")
-
-file = "ScanSubgroup_ADedgelistNames_DCG.csv"
-
-data = read.csv(file, head = TRUE)
-data = practiceData
-#### If you want to remove all lines with a "0" code...
-data = data[data$Initiator != 0 & data$Recipient != 0,]
-
-#### Change "Initiator" and "Recipient" to the names of the column headers
-#### This will give you the sorted list of unique subject ID numbers
-subjects = sort(unique(c(as.matrix(data$Initiator), as.matrix(data$Recipient))))	## Done by Matt Pagel to handle string variables as nodes
-
-N = length(subjects)
-
-#### Converting the raw data into a conflict matrix called "conf".
-rawsim = matrix(0, N, N) #no data, sized N*N
-for (j in 1:nrow(data)){
-  subject1 = which(subjects == data$Initiator[j])
-  subject2 = which(subjects == data$Recipient[j])
-  rawsim[subject1, subject2] = rawsim[subject1, subject2] + 1
-}
-
-#### [end Kevin's code for creating a matrix from edgelist##
-
-
-## Start with a data set X in R^d of N nodes, given in the
-## form of an N by d matrix
-
-
-
-
-Grooming^1
-Grooming^2
-....
-Grooming^20
-
-#### Which method to use for transforming rawsim into different temperatures
-#### of the similarity matrix
-
-maxraw<- max(rawsim)
-Sim<- rawsim/maxraw
-
-
-
-
-
 #####
-source("./R/GetEigenPlot.R")
+source("./R/GetNCluster.R")
 source("./R/MakeSeries.R")
 source("./R/GetSim.R")
 source("./R/EstClust.R")
+source("./R/as.simMat.R")
 
-load("Distance-DCG.RData")
+data = practiceData[-875, ]
+Sim <- as.simMat(data)  # as.simMat checked.
+temperatures <- temperature_select(0.01, 20, 20, 'random')
+plot(temperatures)
 
-Temp <- 0.2
-Sim <- GetSim(costDist, Temp)
+sim_List <- simAll(Sim, temperatures)
+
+est_list <- lapply(sim_List, function(x) EstClust(x, MaxIt = 1000, m = 5))
+
+eigenAll <- function(est_list) {
+  eigen_list <- lapply(est_list, GetEigenvalues)
+  eigen_all <- do.call(cbind, eigen_list)
+  return(eigen_all)
+}
+
+eigen_all <- eigenAll(est_list)
+
+
+ncol(eigen_all)
+
+color_matrix <- eigen_all
+color_matrix[] <- NA
+color_matrix
+plot.eigenValues <- function(eigen_all, alpha, )
+
+?rainbow
+color_samples <- rainbow(ncol(eigen_all), alpha = 0.3)
+color_matrix <- matrix(NA, nrow = nrow(eigen_all), ncol = ncol(eigen_all))
+
+for (i in 1:length(color_samples)){
+  color_matrix[,i] <- rep(color_samples[i], nrow(eigen_all))
+}
+
+color_matrix[which(eigen_all < 0)] <- "black"
+
+color_matrix
+
+plot(eigen_all[,1],
+     type = "n",
+     xlab = "",
+     ylab = "Normalized eigenvalues",
+     main = "Eigen-plot")
+for (i in 1:ncol(eigen_all)) {
+  lines(eigen_all[,i], type = "p", pch = 20, cex = 0.5, col = color_matrix[,i])
+}
+
+legend("topright", # places a legend at the appropriate place
+
+  c(paste0("temperature", 1:ncol(eigen_all))), # puts text in the legend
+
+
+  lty = rep(1, ncol(eigen_all)), # gives the legend appropriate symbols (lines)
+
+
+  col = color_samples,
+  cex = 0.5) # gives the legend lines the correct color
+
+?legend
+
+
+
+
+Treee1 <- hclust(as.dist(1-est1))
+Treee2 <- plot(hclust(as.dist(1-est2)))
+
+GetNCluster(est1)
+summary(Treee1)
+str(Treee1)
+plot(Treee1)
+
+Treee1[[1]]
+Treee1[[2]]
+print(Treee1)
+?hclust
+Ens.list <- lapply(Sim.temp.list, function(x) EstClust(x, MaxIt = 1000, m = 5))
+
+
 
 ## Function 'doStuff' added by Matt Pagel to combine Ens and Tree code, as well as add node names to tree plot
 doStuff <- function(dta, iters, mm, pl=TRUE, NClust=FALSE) {
@@ -73,16 +97,39 @@ doStuff <- function(dta, iters, mm, pl=TRUE, NClust=FALSE) {
 Ens2 <- doStuff(Sim^2, 1000, 5)
 
 Ens1 <- EstClust(Sim^0.5, MaxIt = 1000, m = 5)
-rownames(Ens1) <- names
-colnames(Ens1) <- names
+Ens1
+
+Ens2 <- EstClust(Sim^0.9, MaxIt = 1000, m = 5)
+Ens2
+
+?as.dist
+
 Tree1 <- hclust(as.dist(1-Ens1))
 plot(Tree1)
-GetNCluster(Ens1)
 
+GetNCluster(Ens1)
+?lapply
+jpeg("mypic.jpg", width = 1000, height = 1000)
+par(mfrow = c(1, 2))
+lapply(list(Ens1, Ens2), GetNCluster)
+dev.off()
+?par
 #Temp <- 0.5
 #Sim <- GetSim(distance, Temp)
 Ens2 <- EstClust(Sim^0.8, MaxIt = 1000, m = 4)
+Ens2
+
+d = rowSums(Ens2)
+n = nrow(Ens2)
+Tmp = diag(d^(-1/2))
+NormalizeEns = Tmp %*% Ens2 %*% Tmp
+Eigenvalues = eigen(NormalizeEns)$values
+
+plot(Eigenvalues)
+
+?nScree
 Tree2 <- hclust(as.dist(1-Ens2))
+hclust
 plot(Tree2)
 GetNCluster(Ens2)
 

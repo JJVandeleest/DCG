@@ -1,4 +1,4 @@
-#' convert to a matrix of \code{conf.mat} class
+#' convert to a matrix of \code{similarityMatrix} class
 #'
 #' \code{as.conflictmat} convert an edgelist or a win-loss raw matrix to a matrix of \code{conf.mat} class
 #' @param Data either a dataframe or a matrix, representing raw win-loss interactions using either an edgelist or a matrix.
@@ -16,8 +16,6 @@
 #' Note, when using a 3-column edgelist (e.g. a weighted edgelist) to represent raw win-loss interactions, each dyad must be unique. If more than one rows are found with the same initiator and recipient,
 #' sum of the frequencies will be taken to represent the freqency of interactions between this unique dyad. A warning message will prompt your attention to the accuracy of your raw data when duplicate dyads were found in a three-column edgelist.
 #'
-#'
-#' @seealso \code{\link{findIDpaths}}, \code{\link{countPaths}}, \code{\link{transitivity}}, \code{\link{conductance}}
 #'
 #' @examples
 #' confmatrix <- as.conflictmat(sampleEdgelist, swap.order = FALSE)
@@ -41,13 +39,13 @@ as.simMat = function(Data, weighted = FALSE, swap.order = FALSE){
     } else{
       mat <- as.matrix(Data)
     }
-    class(mat) = c("sim.mat", "matrix")
-    return(mat)
   } else {
     mat <- edgelisttomatrix(Data, weighted, swap.order)
-    class(mat) = c("sim.mat", "matrix")
-    return(mat)
   }
+  maxraw <- max(mat)
+  Sim<- mat/maxraw
+  class(Sim) = c("similarityMatrix", "matrix")
+  return(Sim)
 }
 
 
