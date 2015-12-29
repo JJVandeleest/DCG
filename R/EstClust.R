@@ -13,6 +13,7 @@
 ## The function returns EmpSim.
 #######################################################################################
 
+
 EstClust <- function(Sim, MaxIt=1000, m=5) {
   N <- nrow(Sim)  ## N is the number of nodes in the data set
 

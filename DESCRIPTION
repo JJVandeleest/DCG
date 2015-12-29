@@ -1,11 +1,17 @@
 Package: DCG
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1
-Date: 2015-07-23
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
+Title: Data Cloud Geometry
+Version: 0.12
+Date: 2015-12-29
+Author: Fushing Lab & McCowan Lab, University of California, Davis
+Depends:
+    R (>= 2.14.0)
+Maintainer: Jian Jin <jinjian.pku@gmail.com>
 Description: More about what it does (maybe more than one line)
-License: What license is it under?
+License: GPL (>= 2)
+Copyright: Fushing Lab & McCowan Lab, University of California, Davis
+Imports:
+      stats,
+      grDevices
 LazyData: TRUE
 Suggests: testthat

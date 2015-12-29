@@ -11,6 +11,8 @@
 ## visited during the random walk in sequential order.
 #############################################################################
 
+# called in EstClust
+
 MakeSeries <- function(W, M=5) {
 
   N <- nrow(W)  ## N is the number of data nodes

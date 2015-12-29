@@ -1,46 +1,39 @@
 #' convert to a matrix of \code{similarityMatrix} class
 #'
-#' \code{as.conflictmat} convert an edgelist or a win-loss raw matrix to a matrix of \code{conf.mat} class
-#' @param Data either a dataframe or a matrix, representing raw win-loss interactions using either an edgelist or a matrix.
-#' By default, winners are represented by IDs in the 1st column for an edgelist, and by row IDs for a matrix.
+#' \code{as.simMat} convert an edgelist or a raw matrix to a similarity matrix whose values range from 0 to 1 of \code{similarityMatrix} class.
+#' @param Data either a dataframe or a matrix, representing raw interactions using either an edgelist or a matrix.
 #' Frequency of interactions for each dyad can be represented either by multiple occurrences of the dyad for a 2-column edgelist, or
 #' by a third column specifying the frequency of the interaction for a 3-column edgelist.
-#' @param swap.order If the winner is placed in the 2nd column for an edgelist or as the column name for a matrix, specify as \code{TRUE}. By default, winners are placed in the first column of an edgelist or in the row names of a matrix.
 #' @param weighted If the edgelist is a 3-column edgelist in which weight was specified by frequency, use \code{weighted = TRUE}.
-#' @return a named matrix with the \code{[i,j]}th entry equal to the number of times \code{i} wins over \code{j}.
-#' @details \code{conf.mat} is short for "Conflict Matrix". \code{conf.mat} is
-#' a class of R objects. It is required to use \code{as.conflictmat} to convert your
-#' raw edgelist or raw win-loss matrix into a matrix of \code{conf.mat} object before
-#' using other functions to find (in)direct pathways and computing dominance probabilities.
+#' @return a named matrix with the \code{[i,j]}th entry equal to the number of times \code{i} grooms \code{j}.
+#' @details It is required to use \code{as.simMat} to transform your
+#' raw edgelist or raw matrix into a matrix of \code{similarityMatrix} object before
+#' using other functions to find clusters.
 #'
-#' Note, when using a 3-column edgelist (e.g. a weighted edgelist) to represent raw win-loss interactions, each dyad must be unique. If more than one rows are found with the same initiator and recipient,
-#' sum of the frequencies will be taken to represent the freqency of interactions between this unique dyad. A warning message will prompt your attention to the accuracy of your raw data when duplicate dyads were found in a three-column edgelist.
+#' Note, when using a 3-column edgelist (e.g. a weighted edgelist) to represent raw interactions, each dyad must be unique. If more than one rows are found with the same Initiator and recipient,
+#' sum of the frequencies will be taken to represent the freqency of interactions between this unique dyad. A warning message will prompt your attention to the accuracy of your raw data when duplicated dyads were found in a three-column edgelist.
 #'
 #'
 #' @examples
-#' confmatrix <- as.conflictmat(sampleEdgelist, swap.order = FALSE)
-#' confmatrix2 <- as.conflictmat(sampleRawMatrix, swap.order = FALSE)
-#' confmatrix3 <- as.conflictmat(sampleWeightedEdgelist, weighted = TRUE, swap.order = FALSE)
+#' simmatrix <- as.simMat(myData)
 #' @export
 
-as.simMat = function(Data, weighted = FALSE, swap.order = FALSE){
+as.simMat = function(Data, weighted = FALSE){
   if (ncol(Data) > 3 & ncol(Data) != nrow(Data)) {
-    stop("check your raw data: A edgelist should be of either 2 or 3 columns. If it is a win-loss matrix, the column number should be equal to row number.")
+    stop("check your raw data: A edgelist should be of either 2 or 3 columns. If it is a matrix, the column number should be equal to row number.")
   }
 
   if (ncol(Data) == nrow(Data)){
     # if values on diagonal are not all zeros, return error.
     if (any(diag(as.matrix(Data)) != 0)){
       index <- which(diag(as.matrix(Data)) != 0)
-      stop(paste("check your raw win-loss matrix at Row", paste(index, collapse = ","), "and column", paste(index, collapse = ","), "; Non-zero values are not allowed on the diagonal in your raw win-loss matrix."))
+      stop(paste("check your raw matrix at Row", paste(index, collapse = ","), "and column", paste(index, collapse = ","), "; Non-zero values are not allowed on the diagonal in your raw matrix."))
     }
-    if (swap.order == TRUE) {
-      mat <- t(as.matrix(Data))
-    } else{
+    else{
       mat <- as.matrix(Data)
     }
   } else {
-    mat <- edgelisttomatrix(Data, weighted, swap.order)
+    mat <- edgelisttomatrix(Data, weighted)
   }
   maxraw <- max(mat)
   Sim<- mat/maxraw
@@ -51,23 +44,19 @@ as.simMat = function(Data, weighted = FALSE, swap.order = FALSE){
 
 # transform an edgelist into a matrix
 #
-# @param edgelist a 2-column (or 3-column for weighted edgelist) dataframe/matrix of edges. The winner is in the 1st column by default. For weighted edgelist, the third column should be the weight.
+# @param edgelist a 2-column (or 3-column for weighted edgelist) dataframe/matrix of edges. The Initiator is in the 1st column by default. For weighted edgelist, the third column should be the weight.
 # @param weighted If the edgelist is a 3-column weighted edgelist, use \code{weighted = TRUE}.
-# @param swap.order If the winner is in the 2nd column, specify as \code{TRUE}.
-# @return a named matrix with \code{[i,j]}th entry equal to the number of times \code{i} wins over \code{j}.
+# @return a named matrix with \code{[i,j]}th entry equal to the number of times \code{i} initiated interactions over \code{j}.
 # It is the matrix representation of the edgelist.
 #
 # @seealso \code{\link{conductance}}
 
-edgelisttomatrix <- function(edgelist, weighted = FALSE, swap.order = FALSE) {
+edgelisttomatrix <- function(edgelist, weighted = FALSE) {
 
   if (ncol(edgelist) > 3) {
     stop("edgelist should be of 2 column, or 3-column for weighted edgelist")
   }
 
-  if (swap.order == TRUE){
-    edgelist[, 1:2] <- edgelist[, 2:1]
-  }
 
   if (any(edgelist[,1] == edgelist[,2])) {
     rowIndex <- which(edgelist[,1] == edgelist[,2])

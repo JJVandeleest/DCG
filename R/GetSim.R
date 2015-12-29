@@ -3,7 +3,7 @@
 ## The similarity matrix W is calculated at each temperature T.
 ## The diagonal of W are all 0.
 ############################################################################
-
+#' @export
 
 GetSim <- function(D, T) {
   W <- exp(-D/T)

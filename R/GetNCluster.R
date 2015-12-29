@@ -1,4 +1,6 @@
-GetNCluster = function(Ens){
+
+
+GetNCluster = function(Ens, ...){
 
 	d = rowSums(Ens)
 	n = nrow(Ens)
