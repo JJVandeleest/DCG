@@ -15,13 +15,13 @@
 #' # for CRAN check only
 #' Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 #' }
-#' plotTrees(Ens_list, name = "manyTrees")
+#' plotCLUSTERS(Ens_list, name = "manyTrees")
 #'
 #'
-#' @export
 
 
-plotTrees <- function(EnsList, name = "forest", ...){
+
+plotCLUSTERS <- function(EnsList, name = "forest", ...){
   file = paste0("./", name, ".pdf")
   pdf(file = file, onefile = TRUE, width = 10, height = 10)
   for (i in 1:length(EnsList)){
@@ -40,7 +40,7 @@ plotTrees <- function(EnsList, name = "forest", ...){
 #' @return a tree plot
 #' @export
 
-plotTheTree <- function(EnsList, index, ...){
+plotTheCluster <- function(EnsList, index, ...){
   plotTree(EnsList[[index]])
 }
 

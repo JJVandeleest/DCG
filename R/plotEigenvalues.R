@@ -16,25 +16,40 @@
 #' # for CRAN check only
 #' Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 #' }
-#' eigenvalue_list <- getEigenvalueList(Ens_list)
-#' plotMultiEigenvalues(eigenvalue_list, "eigenvaluePlots")
+#'
+#' plotMultiEigenvalues(Ens_list, mfrow = c(10, 2), mar = c(1, 1, 1, 1))
+#'
+#' @export
 
+plotMultiEigenvalues <- function(Ens_list, mfrow, mar = c(2, 2, 2, 2), line = -1.5, cex = 0.5, ...) {
+   eigenvalue_list <- DCG:::getEigenvalueList(Ens_list)
+   op <- par(mfrow = mfrow,
+            mar = mar) # set arrangement
 
-
-plotMultiEigenvalues <- function(eigenvalue_list, name = "eigenvaluePlots"){
-  if(!(is.character(name))){
-    name <- as.character(name)
-    warning("file name was converted to a character vector.")
-  }
-  file = paste0("./", name, ".pdf")
-  pdf(file = file, onefile = TRUE)
   for (i in 1:length(eigenvalue_list)){
-    plotEigenValue(eigenvalue_list[[i]])
-    mtext(paste0("Ens", i), 4)
+    Eigenvalues = eigenvalue_list[[i]]
+    n = length(Eigenvalues)
+    COLOR = rep("black",n)
+    COLOR[which(Eigenvalues > 0)] = "red"
+    plot(Eigenvalues,
+         type = "b",
+         pch = 20,
+         col = COLOR,
+         cex = cex,
+         ylab = "Normalized eigenvalues",
+         main = paste0("Eigen-plot", " ", "Ens", i))
   }
-  dev.off()
-  message(paste0("eigen value plots can be found at ", sQuote(file)))
+  par(op)
 }
+
+
+
+
+
+
+
+
+
 
 
 plotEigenValue <- function(Eigenvalues, ...) {

@@ -5,7 +5,8 @@
 \title{plot eigenvalues
 \code{plotMultiEigenvalues} plot eigen values into a ".pdf" file.}
 \usage{
-plotMultiEigenvalues(eigenvalue_list, name = "eigenvaluePlots")
+plotMultiEigenvalues(Ens_list, mfrow, mar = c(2, 2, 2, 2), line = -1.5,
+  cex = 0.5, ...)
 }
 \arguments{
 \item{eigenvalue_list}{a list in which elements are numeric vectors representing eigenvalues.}
@@ -30,7 +31,7 @@ Ens_list <- getEnsList(Sim, temperatures, MaxIt = 1000, m = 5)
 # for CRAN check only
 Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 }
-eigenvalue_list <- getEigenvalueList(Ens_list)
-plotMultiEigenvalues(eigenvalue_list, "eigenvaluePlots")
+
+plotMultiEigenvalues(Ens_list, mfrow = c(10, 2), mar = c(1, 1, 1, 1))
 }
 

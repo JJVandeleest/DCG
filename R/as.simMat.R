@@ -24,13 +24,12 @@ as.simMat = function(Data, weighted = FALSE){
   }
 
   if (ncol(Data) == nrow(Data)){
-    # if values on diagonal are not all zeros, return error.
-    if (any(diag(as.matrix(Data)) != 0)){
-      index <- which(diag(as.matrix(Data)) != 0)
-      stop(paste("check your raw matrix at Row", paste(index, collapse = ","), "and column", paste(index, collapse = ","), "; Non-zero values are not allowed on the diagonal in your raw matrix."))
-    }
-    else{
-      mat <- as.matrix(Data)
+    # if values on diagonal are not all zeros, convert to zero, return warnings.
+    mat <- as.matrix(Data)
+    if (any(diag(mat != 0))) {
+      index <- which(diag(mat) != 0)
+      diag(mat)[index] <- 0
+      warning(paste("check your raw matrix at Row", paste(index, collapse = ","), "and column", paste(index, collapse = ","), "; Non-zero values on diagonal was converted to zeros."))
     }
   } else {
     mat <- edgelisttomatrix(Data, weighted)
@@ -60,7 +59,8 @@ edgelisttomatrix <- function(edgelist, weighted = FALSE) {
 
   if (any(edgelist[,1] == edgelist[,2])) {
     rowIndex <- which(edgelist[,1] == edgelist[,2])
-    stop(paste("check your raw data at row number", paste(rowIndex, collapse = ","), ". The initiator and the recipient should not be the same."))
+    edgelist <- edgelist[-rowIndex, ]
+    warning(paste("check your raw data at row number", paste(rowIndex, collapse = ","), ". The initiator and the recipient are the same. These data were removed"))
   }
 
   subjects = unique(sort(as.matrix(edgelist[,1:2]))) # work better for IDs of character
