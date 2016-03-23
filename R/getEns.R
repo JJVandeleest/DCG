@@ -25,7 +25,7 @@
 
 
 getEnsList <- function(simMat, temperatures, MaxIt = 1000, m = 5) {
-  ens_list <- lapply(temperatures, function(x) getEns(SimMat, x, MaxIt = MaxIt, m = m))
+  ens_list <- lapply(temperatures, function(x) getEns(simMat, x, MaxIt = MaxIt, m = m))
   return(ens_list)
 }
 
