@@ -22,15 +22,22 @@ as.simMat = function(Data, weighted = FALSE){
   if (ncol(Data) > 3 & ncol(Data) != nrow(Data)) {
     stop("check your raw data: A edgelist should be of either 2 or 3 columns. If it is a matrix, the column number should be equal to row number.")
   }
-
+  # for matrix
   if (ncol(Data) == nrow(Data)){
+
     # if values on diagonal are not all zeros, convert to zero, return warnings.
-    mat <- as.matrix(Data)
-    if (any(diag(mat != 0))) {
-      index <- which(diag(mat) != 0)
-      diag(mat)[index] <- 0
+
+    mat_raw <- as.matrix(Data)
+
+    if (any(diag(mat_raw != 0))) {
+      index <- which(diag(mat_raw) != 0)
+      diag(mat_raw)[index] <- 0
       warning(paste("check your raw matrix at Row", paste(index, collapse = ","), "and column", paste(index, collapse = ","), "; Non-zero values on diagonal was converted to zeros."))
     }
+
+    subjects <- sort(colnames(mat_raw))
+    mat <- mat_raw[subjects, subjects]
+
   } else {
     mat <- edgelisttomatrix(Data, weighted)
   }
