@@ -23,7 +23,7 @@
 
 plotCLUSTERS <- function(EnsList, name = "forest", ...){
   file = paste0("./", name, ".pdf")
-  pdf(file = file, onefile = TRUE, width = 10, height = 10)
+  pdf(file = file, onefile = TRUE, width = 15, height = 15)
   for (i in 1:length(EnsList)){
     plotTree(EnsList[[i]])
     mtext(paste0("Ens", i), 4)
