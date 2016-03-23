@@ -1,0 +1,54 @@
+---
+title: "testDCG"
+author: "JJ"
+date: "January 27, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+
+library(DCG)
+library(stringr)
+temperatures <- temperatureSample(start = 0.01, end = 10, n = 30, method = 'fixedInterval') 
+
+filenames <- list.files("/Users/JianJin/Dropbox/Rfile/DCG/rdev/DCG_groom and huddle/")
+names <- stringr::str_sub(names, end = -5L)
+
+path = "/Users/JianJin/Dropbox/Rfile/DCG/rdev/DCG_groom and huddle/"
+
+file = paste0(path, names[1])
+
+data1 <- read.csv(file)
+
+data1
+
+
+simMat1 <- as.simMat(a)
+Ens_list <- getEnsList(simMat = Sim, 
+                       temperatures = temperatures, 
+                       MaxIt = 1000, 
+                       m = 5)
+
+saveRDS(Ens_list, file = paste0(path, names[1], "_EnsembleMatrix.rds"))
+
+pdf(file = paste0(path, names[1], "_eigenPlot.pdf"), onefile = TRUE, width = 30, height = 60)
+ # start a pdf graphic device
+plotMultiEigenvalues(Ens_list, mfrow = c(10, 2), 
+                     mar = c(2, 2, 2, 2),
+                     line = -1.5, cex = 0.8) 
+dev.off()
+
+
+DCG:::plotCLUSTERS(Ens_list, name = "my2ndforest")
+
+plotTheCluster(Ens_list, 1)
+
+
+
+```

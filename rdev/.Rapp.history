@@ -1,0 +1,19 @@
+getwd()
+setwd("/Users/JianJin/Dropbox/Rfile/DCG/rdev/")
+file = "./DCG_groom and huddle/NC13_RU1_Groom.csv"
+data = read.csv(file, head = TRUE)#
+#### If you want to remove all lines with a "0" code...#
+data = data[data$Initiator != 0 & data$Recipient != 0,]#
+#### Change "Initiator" and "Recipient" to the names of the column headers#
+#### This will give you the sorted list of unique subject ID numbers#
+subjects = sort(unique(c(data$Initiator, data$Recipient)))#
+N = length(subjects)#
+#### Converting the raw data into a conflict matrix called "conf".#
+rawsim = matrix(0, N, N)#
+for(j in 1:nrow(data)){#
+  subject1 = which(subjects == data$Initiator[j])#
+  subject2 = which(subjects == data$Recipient[j])#
+  rawsim[subject1, subject2] = rawsim[subject1, subject2] + 1#
+}
+rawsim
+rawsim

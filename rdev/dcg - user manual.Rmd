@@ -30,6 +30,11 @@ library(DCG)
 head(myData)
 
 Sim <- as.simMat(myData)
+
+str(Sim)
+
+sim2 <- data.frame(Sim)
+
 ```
 
 #### Selecting temperatures
@@ -40,9 +45,11 @@ To generate several different temperatures, we use the function `temperatureSamp
 
 ```{r}
 
-set.seed(1) # This ensure we get the same results when sampling temperares. It is not required. 
+set.seed(18) # This ensure we get the same results when sampling temperares. It is not required. 
 
-temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random') 
+temperatures <- temperatureSample(start = 0.01, end = 10, n = 30, method = 'fixedInterval') 
+
+
 ```
 
 
@@ -64,10 +71,15 @@ The appropriate number of clusters is determined by examining the eigenvalue plo
 
 ![eigenvalue plot example](/Users/JianJin/Dropbox/Rfile/DCG/rdev/eigenvalueplot-example.png)
 
-The function `plotEnsList` takes two arguments, `Enslist` and `name`, and exported a .pdf file in your working directory containing all eigenvalue plots. The argument `Enslist` is the output from the function `getEnsList`. The argument `name` is the name given to the exported .pdf file.
+
+The function `plotMultiEigenvalues` takes two arguments, `Enslist` and `mfrow`, and generate eigenvalue plots which allow you to use elbow rules to decide number of communities present in your network. The argument `Enslist` is the output from the function `getEnsList`. There is one ensemble matrix corresponding to each temperature. The number of ensemble matrices will be the same as the number of temperatures you specified when generating the temperatures. The second argument `mfrow` specifies the arrangement of the eigenvalue plots. The function `mfrow` takes two values in the format of `c(integer_row_number, integer_column_number)`. For example, if you have 20 ensemble matrices, and you want generate a graph of 2 plots in each row and 10 plots in each column, you could specify `mfrow = c(10, 2)`. In addition, the function `plotMultiEigenvalues` also take other arguments that are in `plot`. You could specify font size, title, etc by accessing arguments in `plot`. It is recommended that you plot into a pdf device, instead of in R console. Plotting into a pdf device allows a better view.
 
 ```{r}
-plotEnsList(Ens_list, name = "eigenvalue_plots")
+pdf(file = "./myeigenvalueplots.pdf", onefile = TRUE, width = 20, height = 40) # start a pdf graphic device
+plotMultiEigenvalues(Ens_list, mfrow = c(10, 2), 
+                     mar = c(1, 1, 1, 1),
+                     line = -1.5, cex = 0.8) # plot in the pdf device you started
+graphics.off() # close all plotting devices. You could find you plots in "./myeigenvalueplots.pdf"
 ```
 
 Note, the plots in your "`eigenvalue_plots.pdf`" file look messy because we ran only 5 iterations (MaxIt = 5) in `getEnsList`. Try using `MaxIt = 1000` and see if your plots are of any difference.
@@ -79,21 +91,22 @@ After inspecting the eigen plots, choose an ensemble matrix (Ens1, Ens2….Ens20
 
 #### Generating tree plots
 
-To generate tree plot of specific ensemble matrix, you could use `plotTheTree` function. For example, if you want to create the tree plot from only the first ensemble matrix, you'll need to run the following codes:
+To generate tree plot of specific ensemble matrix, you could use `plotTheCluster` function. For example, if you want to create the tree plot from only the first ensemble matrix, you'll need to run the following codes:
 
-```{r, fig.width=16, fig.height=9}
-plotTheTree(Ens_list, index = 1)
-
-```
-
-The function `plotTrees` is used to plot tree plots from a list of ensemble matrices and export the plots in a .pdf file in your working directory. Its first argument `EnsList` is the output from the function `getEnsList`. Its second argument `name` is the name given to the .pdf file. These plots allow you to examine the differences between cluster divisions corresponding to each of the ensemble matrix. You could find the exported .pdf file in your working directory.
 
 ```{r}
-plotTrees(EnsList = Ens_list, name = "myTrees")
+plotTheCluster(Ens_list, 2)
+```
+
+
+The function `plotCLUSTERS` is used to plot tree plots from a list of ensemble matrices and export the plots in a .pdf file in your working directory. Its first argument `EnsList` is the output from the function `getEnsList`. Its second argument `name` is the name given to the .pdf file. These plots allow you to examine the differences between cluster divisions corresponding to each of the ensemble matrix. You could find the exported .pdf file in your working directory.
+
+```{r, fig.width=16, fig.height=9}
+DCG:::plotCLUSTERS(Ens_list, name = "my2ndforest")
+
 ```
 
 
 In addition, the Ens matices contains valuable information as well. These values range from 0 to 1 and represent the proportion of the 1000 iterations in which each pair of nodes appeared in the same cluster. 
-To examine ensemble matrices of your choice, you could pull the matrix from the list by running `Ens_list[[n]]`, with n being the index of the matrix you choose. For example, if you want to examine the first one, simply run `Ens_list[[1]]`. If you want to save the first matrix into an Excel file, run `write.csv(Ens_list[[1]], "myFirstEnsembleMatrix.csv").
 
-Feel free play with it and let me know what you think! Happy New Year!
+To examine ensemble matrices of your choice, you could pull the matrix from the list by running `Ens_list[[n]]`, with n being the index of the matrix you choose. For example, if you want to examine the first one, simply run `Ens_list[[1]]`. If you want to save the first matrix into an Excel file, run `write.csv(Ens_list[[1]], "myFirstEnsembleMatrix.csv").
