@@ -9,9 +9,17 @@ plotMultiEigenvalues(Ens_list, mfrow, mar = c(2, 2, 2, 2), line = -1.5,
   cex = 0.5, ...)
 }
 \arguments{
-\item{eigenvalue_list}{a list in which elements are numeric vectors representing eigenvalues.}
+\item{mfrow}{A vector of the form c(nr, nc) passed to par{graphics}.}
 
-\item{name}{a character vector of length 1. name of the exported pdf}
+\item{mar}{margin parameter}
+
+\item{line}{}
+
+\item{cex}{}
+
+\item{...,}{[link: graphical parameters] such as col, see [link: par].}
+
+\item{eigenvalue_list}{a list in which elements are numeric vectors representing eigenvalues.}
 }
 \value{
 a pdf file in the working directory containing all eigenvalue plots

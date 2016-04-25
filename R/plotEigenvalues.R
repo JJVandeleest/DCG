@@ -2,7 +2,11 @@
 #' \code{plotMultiEigenvalues} plot eigen values into a ".pdf" file.
 #'
 #' @param eigenvalue_list a list in which elements are numeric vectors representing eigenvalues.
-#' @param name a character vector of length 1. name of the exported pdf
+#' @param mfrow A vector of the form c(nr, nc) passed to par{graphics}.
+#' @param mar margin parameter
+#' @param line
+#' @param cex
+#' @param ..., [link: graphical parameters] such as col, see [link: par].
 #' @return a pdf file in the working directory containing all eigenvalue plots
 #'
 #' @examples
@@ -21,8 +25,12 @@
 #'
 #' @export
 
-plotMultiEigenvalues <- function(Ens_list, mfrow, mar = c(2, 2, 2, 2), line = -1.5, cex = 0.5, ...) {
-   eigenvalue_list <- DCG:::getEigenvalueList(Ens_list)
+plotMultiEigenvalues <- function(Ens_list,
+                                 mfrow,
+                                 mar = c(2, 2, 2, 2),
+                                 line = -1.5,
+                                 cex = 0.5, ...) {
+   eigenvalue_list <- getEigenvalueList(Ens_list)
    op <- par(mfrow = mfrow,
             mar = mar) # set arrangement
 
