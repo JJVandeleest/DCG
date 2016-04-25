@@ -3,7 +3,7 @@
 \name{temperatureSample}
 \alias{temperatureSample}
 \title{generate temperatures
-\code{temperatureSample} find the rank order for the win-loss relationship}
+\code{temperatureSample} ADD DESCRIPTION FOR TEMPERATURE~~~~}
 \usage{
 temperatureSample(start = 0.01, end = 20, n = 20, method = "random")
 }
@@ -22,10 +22,10 @@ a numeric vector of length n representing temperatures sampled.
 }
 \description{
 generate temperatures
-\code{temperatureSample} find the rank order for the win-loss relationship
+\code{temperatureSample} ADD DESCRIPTION FOR TEMPERATURE~~~~
 }
 \examples{
-Sim <- as.simMat(data)  # as.simMat checked.
+Sim <- as.simMat(myData)  # as.simMat checked.
 temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 }
 

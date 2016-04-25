@@ -1,6 +1,6 @@
 # to do: add temperature method: normal, exponential, etc...
 #' generate temperatures
-#' \code{temperatureSample} find the rank order for the win-loss relationship
+#' \code{temperatureSample} ADD DESCRIPTION FOR TEMPERATURE~~~~
 #'
 #' @param start a numeric vector of length 1, indicating the lowest temperature
 #' @param end a numeric vector of length 1, indicating the highest temperature
@@ -10,7 +10,7 @@
 #' @return a numeric vector of length n representing temperatures sampled.
 #'
 #' @examples
-#' Sim <- as.simMat(data)  # as.simMat checked.
+#' Sim <- as.simMat(myData)  # as.simMat checked.
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 #' @export
 
