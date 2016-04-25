@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' Sim <- as.simMat(myData)  # as.simMat checked.
-#' temperatures <- temperature_sample(start = 0.01, end = 20, n = 20, method = 'random')
+#' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 #' \dontrun{
 #' # Note: It takes a while to run the getEnsList example.
 #' Ens_list <- getEnsList(Sim, temperatures, MaxIt = 1000, m = 5)
