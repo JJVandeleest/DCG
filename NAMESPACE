@@ -3,7 +3,7 @@
 export(GetSim)
 export(as.simMat)
 export(getEnsList)
-export(plotEnsList)
+export(plotCLUSTERS)
 export(plotMultiEigenvalues)
 export(plotTheCluster)
 export(temperatureSample)
