@@ -31,9 +31,6 @@ head(myData)
 
 Sim <- as.simMat(myData)
 
-str(Sim)
-
-sim2 <- data.frame(Sim)
 
 ```
 
