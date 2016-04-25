@@ -22,14 +22,20 @@ temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'rand
 
 Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 
+multi_engenvalues <- getEigenvalueList(Ens_list)
 
-plotMultiEigenvalues(Ens_list, mfrow = c(10, 2), mar = c(1,1,1,1),
+
+plotMultiEigenvalues
+plotMultiEigenvalues(multi_engenvalues, mfrow = c(10, 2), mar = c(1,1,1,1),
                      line = -1.5, cex = 0.8)
 
+pdf(file = "trythisplot.pdf", width = 20, height = 60)
 
-library(DCG)
+plotCLUSTERS(EnsList = Ens_list, c(10, 2), mar = c(1,1,1,1),
+             line = -1.5, cex = 0.8)
 
-DCG:::plotCLUSTERS(Ens_list, "my2ndforest")
+dev.off()
+
 
 
 plotTheCluster(Ens_list, 2)
