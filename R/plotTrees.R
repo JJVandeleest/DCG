@@ -21,16 +21,24 @@
 
 
 
-plotCLUSTERS <- function(EnsList, name = "forest", ...){
-  file = paste0("./", name, ".pdf")
-  pdf(file = file, onefile = TRUE, width = 15, height = 15)
+plotCLUSTERS <- function(EnsList, mfrow,
+                         mar = c(2, 2, 2, 2),
+                         line = -1.5,
+                         cex = 0.5, ...){
+  # set arrangement
+  op <- par(mfrow = mfrow,
+            mar = mar)
+
   for (i in 1:length(EnsList)){
     plotTree(EnsList[[i]])
     mtext(paste0("Ens", i), 4)
   }
-  dev.off()
-  message(paste0("tree plots can be found at ", sQuote(file)))
+
+  par(op)
+
 }
+
+
 
 #' generate tree plots for selected ensemble matrix
 #' \code{plotTrees} plot eigen values into a ".pdf" file.
