@@ -9,28 +9,35 @@ library(DCG)
 
 head(myData)
 
-Sim <- as.simMat(myData)  # as.simMat checked. # documented
-?as.simMat
+Sim <- as.simMat(myData)  # as.simMat checked. # documented. # tested.
+
+
 # Transform your rawsim matrix into a matrix whose values range from 0 to 1 by dividing this by the maximum value of the matrix.
 
 
 temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random') # documented
 
 
-Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
+Sim <- as.simMat(myData)  # as.simMat checked.
+temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
+
+Ens_list <- getEnsList(Sim, temperatures, MaxIt = 1000, m = 5)
+
+
+# test:
+#     - getEnsList is  alist
+#    -
+#
 
 # not necessary: multi_engenvalues <- getEigenvalueList(Ens_list)
-
-?getEigenvalueList
 
 plotMultiEigenvalues(Ens_list,
                      mfrow = c(10, 2), mar = c(1,1,1,1),
                      line = -1.5, cex = 0.8)
 
-plotMultiEigenvalues(multi_engenvalues, mfrow = c(10, 2), mar = c(1,1,1,1),
-                     line = -1.5, cex = 0.8)
 
-pdf(file = "trythisplot.pdf", width = 20, height = 60)
+
+pdf(file = "./rdev/trythisplot.pdf", width = 20, height = 60)
 
 plotCLUSTERS(EnsList = Ens_list, c(10, 2), mar = c(1,1,1,1),
              line = -1.5, cex = 0.8)
@@ -38,6 +45,5 @@ plotCLUSTERS(EnsList = Ens_list, c(10, 2), mar = c(1,1,1,1),
 dev.off()
 
 
-
 plotTheCluster(Ens_list, 2)
-graphics.off()
+
