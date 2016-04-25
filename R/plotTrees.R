@@ -2,8 +2,13 @@
 #' \code{plotTrees} plot eigen values into a ".pdf" file.
 #'
 #' @param ensList a list in which elements are ensemble matrices.
-#' @param name a character vector of length 1. name of the exported .pdf file.
+#' @param mfrow A vector of the form c(nr, nc) passed to par{graphics}.
+#' @param mar margin parameter
+#' @param line
+#' @param cex
+#' @param ...
 #' @return a pdf file in the working directory containing all tree plots.
+#' @export
 #' @examples
 #' Sim <- as.simMat(myData)
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
@@ -15,9 +20,10 @@
 #' # for CRAN check only
 #' Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 #' }
-#' plotCLUSTERS(Ens_list, name = "manyTrees")
+#' plotCLUSTERS(Ens_list, mfrow = c(2, 10), mar = c(1, 1, 1, 1))
 #'
-#'
+
+
 
 
 

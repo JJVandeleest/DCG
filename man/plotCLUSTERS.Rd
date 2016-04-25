@@ -5,10 +5,19 @@
 \title{generate tree plots for each ensemble matrix
 \code{plotTrees} plot eigen values into a ".pdf" file.}
 \usage{
-plotCLUSTERS(EnsList, name = "forest", ...)
+plotCLUSTERS(EnsList, mfrow, mar = c(2, 2, 2, 2), line = -1.5, cex = 0.5,
+  ...)
 }
 \arguments{
-\item{name}{a character vector of length 1. name of the exported .pdf file.}
+\item{mfrow}{A vector of the form c(nr, nc) passed to par{graphics}.}
+
+\item{mar}{margin parameter}
+
+\item{line}{}
+
+\item{cex}{}
+
+\item{...}{}
 
 \item{ensList}{a list in which elements are ensemble matrices.}
 }
@@ -30,6 +39,6 @@ Ens_list <- getEnsList(Sim, temperatures, MaxIt = 1000, m = 5)
 # for CRAN check only
 Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 }
-plotCLUSTERS(Ens_list, name = "manyTrees")
+plotCLUSTERS(Ens_list, mfrow = c(2, 10), mar = c(1, 1, 1, 1))
 }
 
