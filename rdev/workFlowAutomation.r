@@ -4,9 +4,6 @@
 #       heights = c(1,5,5,5,7), respect = FALSE)
 # par(mar=c(0, 4, 0, 0))
 
-# tests
-# line by line
-
 
 library(DCG)
 
@@ -22,10 +19,14 @@ temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'rand
 
 Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 
-multi_engenvalues <- getEigenvalueList(Ens_list)
+# not necessary: multi_engenvalues <- getEigenvalueList(Ens_list)
 
+?getEigenvalueList
 
-plotMultiEigenvalues
+plotMultiEigenvalues(Ens_list,
+                     mfrow = c(10, 2), mar = c(1,1,1,1),
+                     line = -1.5, cex = 0.8)
+
 plotMultiEigenvalues(multi_engenvalues, mfrow = c(10, 2), mar = c(1,1,1,1),
                      line = -1.5, cex = 0.8)
 
