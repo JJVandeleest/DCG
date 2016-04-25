@@ -58,7 +58,7 @@ MakeSeries <- function(W, M=5) {
   Deg <- sort(Degree, decreasing=TRUE)
   Sum <- 0
   i <- 1
-  while(Sum < 0.5*sum(Degree)) {
+  while(Sum < 0.5*sum(Degree)) {  # the goal is to find elements of top degrees.
     Sum <- sum(Deg[1:i])
     i <- i + 1
   }
