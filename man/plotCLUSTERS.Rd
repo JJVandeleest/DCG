@@ -3,7 +3,7 @@
 \name{plotCLUSTERS}
 \alias{plotCLUSTERS}
 \title{generate tree plots for each ensemble matrix
-\code{plotTrees} plot eigen values into a ".pdf" file.}
+\code{plotCLUSTERS} plot all cluster trees}
 \usage{
 plotCLUSTERS(EnsList, mfrow, mar = c(1, 1, 1, 1), line = -1.5, cex = 0.5,
   ...)
@@ -11,7 +11,7 @@ plotCLUSTERS(EnsList, mfrow, mar = c(1, 1, 1, 1), line = -1.5, cex = 0.5,
 \arguments{
 \item{EnsList}{a list in which elements are ensemble matrices.}
 
-\item{mfrow}{A vector of the form c(nr, nc) passed to \code{\link{par}}.}
+\item{mfrow}{A vector of the form \code{c(nr, nc)} passed to \code{\link{par}}.}
 
 \item{mar}{plotting parameters with useful defaults (\code{\link{par}})}
 
@@ -22,11 +22,17 @@ plotCLUSTERS(EnsList, mfrow, mar = c(1, 1, 1, 1), line = -1.5, cex = 0.5,
 \item{...}{further plotting parameters}
 }
 \value{
-a pdf file in the working directory containing all tree plots.
+a \code{pdf} file in the working directory containing all tree plots.
 }
 \description{
 generate tree plots for each ensemble matrix
-\code{plotTrees} plot eigen values into a ".pdf" file.
+\code{plotCLUSTERS} plot all cluster trees
+}
+\details{
+When deciding parameters for mfrow,
+one should take into considerations size of the plotting device and number of cluster plots.
+For example, there are 20 cluster plots, mfrow can be set to \code{c(4, 5)} or \code{c(2, 10)}
+depending on the size and shape of the plotting area.
 }
 \examples{
 Sim <- as.simMat(myData)

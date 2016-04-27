@@ -3,7 +3,7 @@
 \name{plotTheCluster}
 \alias{plotTheCluster}
 \title{generate tree plots for selected ensemble matrix
-\code{plotTrees} plot eigen values into a ".pdf" file.}
+\code{plotTrees} plot one cluster tree}
 \usage{
 plotTheCluster(EnsList, index, ...)
 }
@@ -19,6 +19,6 @@ a tree plot
 }
 \description{
 generate tree plots for selected ensemble matrix
-\code{plotTrees} plot eigen values into a ".pdf" file.
+\code{plotTrees} plot one cluster tree
 }
 

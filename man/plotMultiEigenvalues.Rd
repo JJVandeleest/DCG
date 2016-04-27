@@ -28,6 +28,12 @@ a \code{pdf} file in the working directory containing all eigenvalue plots
 plot eigenvalues
 \code{plotMultiEigenvalues} plot eigen values into a ".pdf" file.
 }
+\details{
+When deciding parameters for mfrow,
+one should take into considerations size of the plotting device and number of plots.
+For example, there are 20 plots, mfrow can be set to \code{c(4, 5)} or \code{c(2, 10)}
+depending on the size and shape of the plotting area.
+}
 \examples{
 Sim <- as.simMat(myData)
 temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')

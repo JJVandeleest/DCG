@@ -1,13 +1,17 @@
 #' generate tree plots for each ensemble matrix
-#' \code{plotTrees} plot eigen values into a ".pdf" file.
+#' \code{plotCLUSTERS} plot all cluster trees
 #'
 #' @param EnsList a list in which elements are ensemble matrices.
-#' @param mfrow A vector of the form c(nr, nc) passed to \code{\link{par}}.
+#' @param mfrow A vector of the form \code{c(nr, nc)} passed to \code{\link{par}}.
 #' @param mar plotting parameters with useful defaults (\code{\link{par}})
 #' @param line plotting parameters with useful defaults (\code{\link{par}})
 #' @param cex plotting parameters with useful defaults (\code{\link{par}})
 #' @param ... further plotting parameters
-#' @return a pdf file in the working directory containing all tree plots.
+#' @return a \code{pdf} file in the working directory containing all tree plots.
+#' @details When deciding parameters for mfrow,
+#' one should take into considerations size of the plotting device and number of cluster plots.
+#' For example, there are 20 cluster plots, mfrow can be set to \code{c(4, 5)} or \code{c(2, 10)}
+#' depending on the size and shape of the plotting area.
 #' @export
 #' @examples
 #' Sim <- as.simMat(myData)
@@ -47,7 +51,7 @@ plotCLUSTERS <- function(EnsList, mfrow,
 
 
 #' generate tree plots for selected ensemble matrix
-#' \code{plotTrees} plot eigen values into a ".pdf" file.
+#' \code{plotTrees} plot one cluster tree
 #' @param EnsList a list in which elements are ensemble matrices.
 #' @param index an integer. index of which ensemble matrix you want to plot.
 #' @param ... plotting parameters passed to \code{\link{par}}.
