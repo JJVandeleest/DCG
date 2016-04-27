@@ -9,7 +9,7 @@ GetSim(D, T)
 \arguments{
 \item{D}{A distance matrix}
 
-\item{T}{Temperature. [Link to temperature Sample ]}
+\item{T}{Temperature. \code{\link{temperatureSample}}}
 }
 \description{
 \code{GetSim} get similarity matrix from a distance matrix

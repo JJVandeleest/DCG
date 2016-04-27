@@ -11,7 +11,7 @@ plotMultiEigenvalues(Ens_list, mfrow, mar = c(2, 2, 2, 2), line = -1.5,
 \arguments{
 \item{Ens_list}{a list in which elements are numeric vectors representing eigenvalues.}
 
-\item{mfrow}{A vector of the form c(nr, nc) passed to \code{\link{par}}.}
+\item{mfrow}{A vector of the form \code{c(nr, nc)} passed to \code{\link{par}}.}
 
 \item{mar}{plotting parameters with useful defaults (\code{\link{par}})}
 
@@ -22,7 +22,7 @@ plotMultiEigenvalues(Ens_list, mfrow, mar = c(2, 2, 2, 2), line = -1.5,
 \item{...}{further plotting parameters}
 }
 \value{
-a pdf file in the working directory containing all eigenvalue plots
+a \code{pdf} file in the working directory containing all eigenvalue plots
 }
 \description{
 plot eigenvalues
