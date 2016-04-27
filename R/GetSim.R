@@ -5,7 +5,7 @@
 ############################################################################
 #' \code{GetSim} get similarity matrix from a distance matrix
 #' @param D A distance matrix
-#' @param T Temperature. [Link to temperature Sample ]
+#' @param T Temperature. \code{\link{temperatureSample}}
 #' @details the similarity matrix is calculated at each temperature T.
 #' @export
 
