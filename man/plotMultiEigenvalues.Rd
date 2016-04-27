@@ -29,7 +29,9 @@ plot eigenvalues
 \code{plotMultiEigenvalues} plot eigen values into a ".pdf" file.
 }
 \details{
-When deciding parameters for mfrow,
+\code{mfrow} determines the arrangement of multiple plots. It takes the form of
+\code{c(nr, nc)} with the first parameter being the number of rows and
+the second parameter being the number of columns. When deciding parameters for mfrow,
 one should take into considerations size of the plotting device and number of plots.
 For example, there are 20 plots, mfrow can be set to \code{c(4, 5)} or \code{c(2, 10)}
 depending on the size and shape of the plotting area.
