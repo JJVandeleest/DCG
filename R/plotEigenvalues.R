@@ -1,7 +1,7 @@
 #' plot eigenvalues
 #' \code{plotMultiEigenvalues} plot eigen values into a ".pdf" file.
 #'
-#' @param eigenvalue_list a list in which elements are numeric vectors representing eigenvalues.
+#' @param Ens_list a list in which elements are numeric vectors representing eigenvalues.
 #' @param mfrow A vector of the form c(nr, nc) passed to par{graphics}.
 #' @param mar margin parameter
 #' @param line
@@ -21,7 +21,7 @@
 #' Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 #' }
 #'
-#' plotMultiEigenvalues(Ens_list, mfrow = c(10, 2), mar = c(1, 1, 1, 1))
+#' plotMultiEigenvalues(Ens_list = Ens_list, mfrow = c(10, 2), mar = c(1, 1, 1, 1))
 #'
 #' @export
 

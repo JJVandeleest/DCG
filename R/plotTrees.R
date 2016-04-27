@@ -1,7 +1,7 @@
 #' generate tree plots for each ensemble matrix
 #' \code{plotTrees} plot eigen values into a ".pdf" file.
 #'
-#' @param ensList a list in which elements are ensemble matrices.
+#' @param EnsList a list in which elements are ensemble matrices.
 #' @param mfrow A vector of the form c(nr, nc) passed to par{graphics}.
 #' @param mar margin parameter
 #' @param line
@@ -20,7 +20,7 @@
 #' # for CRAN check only
 #' Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 #' }
-#' plotCLUSTERS(Ens_list, mfrow = c(2, 10), mar = c(1, 1, 1, 1))
+#' plotCLUSTERS(EnsList = Ens_list, mfrow = c(2, 10), mar = c(1, 1, 1, 1))
 #'
 
 
@@ -49,7 +49,7 @@ plotCLUSTERS <- function(EnsList, mfrow,
 #' generate tree plots for selected ensemble matrix
 #' \code{plotTrees} plot eigen values into a ".pdf" file.
 #'
-#' @param ensList a list in which elements are ensemble matrices.
+#' @param EnsList a list in which elements are ensemble matrices.
 #' @param index an integer. index of which ensemble matrix you want to plot
 #' @return a tree plot
 #' @export
