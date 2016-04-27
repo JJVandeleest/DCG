@@ -29,7 +29,9 @@ generate tree plots for each ensemble matrix
 \code{plotCLUSTERS} plot all cluster trees
 }
 \details{
-When deciding parameters for mfrow,
+\code{mfrow} determines the arrangement of multiple plots. It takes the form of
+\code{c(nr, nc)} with the first parameter being the number of rows and
+the second parameter being the number of columns. When deciding parameters for mfrow,
 one should take into considerations size of the plotting device and number of cluster plots.
 For example, there are 20 cluster plots, mfrow can be set to \code{c(4, 5)} or \code{c(2, 10)}
 depending on the size and shape of the plotting area.
@@ -46,6 +48,5 @@ Ens_list <- getEnsList(Sim, temperatures, MaxIt = 1000, m = 5)
 Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 }
 plotCLUSTERS(EnsList = Ens_list, mfrow = c(2, 10), mar = c(1, 1, 1, 1))
-
 }
 
