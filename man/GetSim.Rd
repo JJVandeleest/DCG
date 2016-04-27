@@ -15,6 +15,6 @@ GetSim(D, T)
 \code{GetSim} get similarity matrix from a distance matrix
 }
 \details{
-the similarity matrix is calculated at each temperature T.
+the similarity matrix is calculated at each temperature \code{T}.
 }
 
