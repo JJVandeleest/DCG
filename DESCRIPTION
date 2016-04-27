@@ -11,7 +11,9 @@ Description: More about what it does (maybe more than one line)
 License: GPL (>= 2)
 Copyright: Fushing Lab & McCowan Lab, University of California, Davis
 Imports:
-      stats,
-      grDevices
+    stats,
+    grDevices
 LazyData: TRUE
-Suggests: testthat
+Suggests:
+    testthat
+RoxygenNote: 5.0.1
