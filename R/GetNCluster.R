@@ -1,5 +1,6 @@
 # This function was broken down into two pieces: get eigenvalue and plot eigen values.
 # It is no longer used in the package.
+# should be deleted.
 
 GetNCluster = function(Ens, ...){
 
