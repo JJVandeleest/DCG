@@ -6,7 +6,7 @@
 #' \code{GetSim} get similarity matrix from a distance matrix
 #' @param D A distance matrix
 #' @param T Temperature. \code{\link{temperatureSample}}
-#' @details the similarity matrix is calculated at each temperature T.
+#' @details the similarity matrix is calculated at each temperature \code{T}.
 #' @export
 
 GetSim <- function(D, T) {
