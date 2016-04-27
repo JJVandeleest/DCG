@@ -2,11 +2,11 @@
 #' \code{plotMultiEigenvalues} plot eigen values into a ".pdf" file.
 #'
 #' @param Ens_list a list in which elements are numeric vectors representing eigenvalues.
-#' @param mfrow A vector of the form c(nr, nc) passed to par{graphics}.
-#' @param mar margin parameter
-#' @param line
-#' @param cex
-#' @param ..., [link: graphical parameters] such as col, see [link: par].
+#' @param mfrow A vector of the form c(nr, nc) passed to \code{\link{par}}.
+#' @param mar plotting parameters with useful defaults (\code{\link{par}})
+#' @param line plotting parameters with useful defaults (\code{\link{par}})
+#' @param cex plotting parameters with useful defaults (\code{\link{par}})
+#' @param ... further plotting parameters
 #' @return a pdf file in the working directory containing all eigenvalue plots
 #'
 #' @examples

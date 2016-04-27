@@ -5,7 +5,7 @@
 \title{generate tree plots for each ensemble matrix
 \code{plotTrees} plot eigen values into a ".pdf" file.}
 \usage{
-plotCLUSTERS(EnsList, mfrow, mar = c(2, 2, 2, 2), line = -1.5, cex = 0.5,
+plotCLUSTERS(EnsList, mfrow, mar = c(1, 1, 1, 1), line = -1.5, cex = 0.5,
   ...)
 }
 \arguments{
@@ -13,7 +13,13 @@ plotCLUSTERS(EnsList, mfrow, mar = c(2, 2, 2, 2), line = -1.5, cex = 0.5,
 
 \item{mfrow}{A vector of the form c(nr, nc) passed to par{graphics}.}
 
-\item{mar}{margin parameter}
+\item{mar}{plotting parameters with useful defaults}
+
+\item{line}{plotting parameters with useful defaults}
+
+\item{cex}{plotting parameters with useful defaults}
+
+\item{...}{further plotting parameters}
 }
 \value{
 a pdf file in the working directory containing all tree plots.

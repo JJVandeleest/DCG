@@ -2,11 +2,11 @@
 #' \code{plotTrees} plot eigen values into a ".pdf" file.
 #'
 #' @param EnsList a list in which elements are ensemble matrices.
-#' @param mfrow A vector of the form c(nr, nc) passed to par{graphics}.
-#' @param mar margin parameter
-#' @param line
-#' @param cex
-#' @param ...
+#' @param mfrow A vector of the form c(nr, nc) passed to \code{\link{par}}.
+#' @param mar plotting parameters with useful defaults (\code{\link{par}})
+#' @param line plotting parameters with useful defaults (\code{\link{par}})
+#' @param cex plotting parameters with useful defaults (\code{\link{par}})
+#' @param ... further plotting parameters
 #' @return a pdf file in the working directory containing all tree plots.
 #' @export
 #' @examples
@@ -28,7 +28,7 @@
 
 
 plotCLUSTERS <- function(EnsList, mfrow,
-                         mar = c(2, 2, 2, 2),
+                         mar = c(1, 1, 1, 1),
                          line = -1.5,
                          cex = 0.5, ...){
   # set arrangement
@@ -48,9 +48,9 @@ plotCLUSTERS <- function(EnsList, mfrow,
 
 #' generate tree plots for selected ensemble matrix
 #' \code{plotTrees} plot eigen values into a ".pdf" file.
-#'
 #' @param EnsList a list in which elements are ensemble matrices.
-#' @param index an integer. index of which ensemble matrix you want to plot
+#' @param index an integer. index of which ensemble matrix you want to plot.
+#' @param ... plotting parameters passed to \code{\link{par}}.
 #' @return a tree plot
 #' @export
 

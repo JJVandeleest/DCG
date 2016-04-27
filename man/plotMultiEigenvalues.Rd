@@ -13,9 +13,13 @@ plotMultiEigenvalues(Ens_list, mfrow, mar = c(2, 2, 2, 2), line = -1.5,
 
 \item{mfrow}{A vector of the form c(nr, nc) passed to par{graphics}.}
 
-\item{mar}{margin parameter}
+\item{mar}{plotting parameters with useful defaults}
 
-\item{..., }{[link: graphical parameters] such as col, see [link: par].}
+\item{line}{plotting parameters with useful defaults}
+
+\item{cex}{plotting parameters with useful defaults}
+
+\item{...}{further plotting parameters}
 }
 \value{
 a pdf file in the working directory containing all eigenvalue plots
