@@ -10,9 +10,9 @@ plotTheCluster(EnsList, index, ...)
 \arguments{
 \item{EnsList}{a list in which elements are ensemble matrices.}
 
-\item{index}{an integer. index of which ensemble matrix you want to plot}
+\item{index}{an integer. index of which ensemble matrix you want to plot.}
 
-\item{...}{further plotting parameter}
+\item{...}{plotting parameters passed to \code{\link{par}}.}
 }
 \value{
 a tree plot

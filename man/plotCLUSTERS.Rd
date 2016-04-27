@@ -11,13 +11,13 @@ plotCLUSTERS(EnsList, mfrow, mar = c(1, 1, 1, 1), line = -1.5, cex = 0.5,
 \arguments{
 \item{EnsList}{a list in which elements are ensemble matrices.}
 
-\item{mfrow}{A vector of the form c(nr, nc) passed to par{graphics}.}
+\item{mfrow}{A vector of the form c(nr, nc) passed to \code{\link{par}}.}
 
-\item{mar}{plotting parameters with useful defaults}
+\item{mar}{plotting parameters with useful defaults (\code{\link{par}})}
 
-\item{line}{plotting parameters with useful defaults}
+\item{line}{plotting parameters with useful defaults (\code{\link{par}})}
 
-\item{cex}{plotting parameters with useful defaults}
+\item{cex}{plotting parameters with useful defaults (\code{\link{par}})}
 
 \item{...}{further plotting parameters}
 }

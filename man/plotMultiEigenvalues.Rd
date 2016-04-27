@@ -11,13 +11,13 @@ plotMultiEigenvalues(Ens_list, mfrow, mar = c(2, 2, 2, 2), line = -1.5,
 \arguments{
 \item{Ens_list}{a list in which elements are numeric vectors representing eigenvalues.}
 
-\item{mfrow}{A vector of the form c(nr, nc) passed to par{graphics}.}
+\item{mfrow}{A vector of the form c(nr, nc) passed to \code{\link{par}}.}
 
-\item{mar}{plotting parameters with useful defaults}
+\item{mar}{plotting parameters with useful defaults (\code{\link{par}})}
 
-\item{line}{plotting parameters with useful defaults}
+\item{line}{plotting parameters with useful defaults (\code{\link{par}})}
 
-\item{cex}{plotting parameters with useful defaults}
+\item{cex}{plotting parameters with useful defaults (\code{\link{par}})}
 
 \item{...}{further plotting parameters}
 }
