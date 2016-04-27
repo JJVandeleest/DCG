@@ -12,9 +12,9 @@ getEnsList(simMat, temperatures, MaxIt = 1000, m = 5)
 
 \item{temperatures}{temperatures selected}
 
-\item{MaxIt}{parameter used in EstClust function [Read EstClust function to further understand MaxIt].}
+\item{MaxIt}{number of iterations for regulated random walks}
 
-\item{m}{parameter used in EstClust function [Read EstClust function to further understand MaxIt].}
+\item{m}{maxiumnum number of time a node can be visited during random walks}
 }
 \value{
 a numeric vector of length n representing temperatures sampled.

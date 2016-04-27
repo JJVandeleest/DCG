@@ -4,8 +4,8 @@
 #'
 #' @param simMat a similarity matrix
 #' @param temperatures temperatures selected
-#' @param MaxIt parameter used in EstClust function [Read EstClust function to further understand MaxIt].
-#' @param m parameter used in EstClust function [Read EstClust function to further understand MaxIt].
+#' @param MaxIt number of iterations for regulated random walks
+#' @param m maxiumnum number of time a node can be visited during random walks
 #' @return a numeric vector of length n representing temperatures sampled.
 #'
 #' @examples
@@ -34,9 +34,8 @@ getEnsList <- function(simMat, temperatures, MaxIt = 1000, m = 5) {
 #'
 #' @param simMat a similarity matrix
 #' @param temperature a numeric vector of length 1, indicating the temperature used to transform the similarity matrix to ensemble matrix
-#' @param MaxIt parameter used in EstClust function [Read EstClust function to further understand MaxIt].
-#' @param m parameter used in EstClust function [Read EstClust function to further understand MaxIt].
-#'
+#' @param MaxIt number of iterations for regulated random walks
+#' @param m maxiumnum number of time a node can be visited during random walks
 #' @return a matrix.
 #' @details This function involves two steps.
 #' It first generate similarity matrices of different variances
