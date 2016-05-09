@@ -7,13 +7,18 @@
 #' @param line plotting parameters with useful defaults (\code{\link{par}})
 #' @param cex plotting parameters with useful defaults (\code{\link{par}})
 #' @param ... further plotting parameters
-#' @return a \code{pdf} file in the working directory containing all tree plots.
-#' @details \code{mfrow} determines the arrangement of multiple plots. It takes the form of
+#' @return a graph containing all tree plots with each tree plot corresponding to the community structure from each of the ensemble matrix.
+#' @details
+#' \code{plotCLUSTERS} plots all cluster trees with each tree corresponding to each ensemble matrix in the list of ens_list.
+#' \code{EnsList} is the output from \code{getEnsList}.
+#'
+#' \code{mfrow} determines the arrangement of multiple plots. It takes the form of
 #' \code{c(nr, nc)} with the first parameter being the number of rows and
 #' the second parameter being the number of columns. When deciding parameters for mfrow,
 #' one should take into considerations size of the plotting device and number of cluster plots.
 #' For example, there are 20 cluster plots, mfrow can be set to \code{c(4, 5)} or \code{c(2, 10)}
 #' depending on the size and shape of the plotting area.
+#' @seealso \code{\link{getEnsList}}
 #' @export
 #' @examples
 #' Sim <- as.simMat(myData)

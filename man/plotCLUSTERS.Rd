@@ -22,13 +22,16 @@ plotCLUSTERS(EnsList, mfrow, mar = c(1, 1, 1, 1), line = -1.5, cex = 0.5,
 \item{...}{further plotting parameters}
 }
 \value{
-a \code{pdf} file in the working directory containing all tree plots.
+a graph containing all tree plots with each tree plot corresponding to the community structure from each of the ensemble matrix.
 }
 \description{
 generate tree plots for each ensemble matrix
 \code{plotCLUSTERS} plot all cluster trees
 }
 \details{
+\code{plotCLUSTERS} plots all cluster trees with each tree corresponding to each ensemble matrix in the list of ens_list.
+\code{EnsList} is the output from \code{getEnsList}.
+
 \code{mfrow} determines the arrangement of multiple plots. It takes the form of
 \code{c(nr, nc)} with the first parameter being the number of rows and
 the second parameter being the number of columns. When deciding parameters for mfrow,
@@ -48,5 +51,8 @@ Ens_list <- getEnsList(Sim, temperatures, MaxIt = 1000, m = 5)
 Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 }
 plotCLUSTERS(EnsList = Ens_list, mfrow = c(2, 10), mar = c(1, 1, 1, 1))
+}
+\seealso{
+\code{\link{getEnsList}}
 }
 
