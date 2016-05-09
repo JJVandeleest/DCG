@@ -21,7 +21,7 @@
 #' For example, there are 20 plots, mfrow can be set to \code{c(4, 5)} or \code{c(2, 10)}
 #' depending on the size and shape of the plotting area.
 #' @return a \code{pdf} file in the working directory containing all eigenvalue plots
-#' @seealso \code{\link(plotCLUSTERS)}, \code{\link{getEnsList}}
+#' @seealso \code{\link{plotCLUSTERS}}, \code{\link{getEnsList}}
 #'
 #' @examples
 #' Sim <- as.simMat(myData)

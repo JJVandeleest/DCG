@@ -58,6 +58,6 @@ plotMultiEigenvalues(Ens_list = Ens_list, mfrow = c(10, 2), mar = c(1, 1, 1, 1))
 
 }
 \seealso{
-\code{\link(plotCLUSTERS)}, \code{\link{getEnsList}}
+\code{\link{plotCLUSTERS}}, \code{\link{getEnsList}}
 }
 
