@@ -1,6 +1,6 @@
 # to do: add temperature method: normal, exponential, etc...
 #' generate temperatures
-#' \code{temperatureSample} ADD DESCRIPTION FOR TEMPERATURE~~~~
+#' \code{temperatureSample} generate tempatures based on either random or fixed intervals
 #'
 #' @param start a numeric vector of length 1, indicating the lowest temperature
 #' @param end a numeric vector of length 1, indicating the highest temperature
@@ -8,6 +8,13 @@
 #' @param method a character vector indicating the method used in selecting temperatures.
 #' It should take either 'random' or 'fixedInterval', case-sensitive.
 #' @return a numeric vector of length n representing temperatures sampled.
+#'
+#' @details In using random walks to find community structure, each normalized similarity matrix is evaluated at different temperatures.
+#' This allows greater variations in the normalized similarity matrices.
+#' It is recommended to try out 20 - 30 temperatures to allow for a thorough exploration of the matrices.
+#' A range of temperatures which lead to stable community structures should be considered as reliable. The temperature in the middle of the range should be selected.
+#'
+#' @seealso \code{\link{getEnsList}}
 #'
 #' @examples
 #' Sim <- as.simMat(myData)  # as.simMat checked.

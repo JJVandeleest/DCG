@@ -3,7 +3,7 @@
 \name{temperatureSample}
 \alias{temperatureSample}
 \title{generate temperatures
-\code{temperatureSample} ADD DESCRIPTION FOR TEMPERATURE~~~~}
+\code{temperatureSample} generate tempatures based on either random or fixed intervals}
 \usage{
 temperatureSample(start = 0.01, end = 20, n = 20, method = "random")
 }
@@ -22,10 +22,19 @@ a numeric vector of length n representing temperatures sampled.
 }
 \description{
 generate temperatures
-\code{temperatureSample} ADD DESCRIPTION FOR TEMPERATURE~~~~
+\code{temperatureSample} generate tempatures based on either random or fixed intervals
+}
+\details{
+In using random walks to find community structure, each normalized similarity matrix is evaluated at different temperatures.
+This allows greater variations in the normalized similarity matrices.
+It is recommended to try out 20 - 30 temperatures to allow for a thorough exploration of the matrices.
+A range of temperatures which lead to stable community structures should be considered as reliable. The temperature in the middle of the range should be selected.
 }
 \examples{
 Sim <- as.simMat(myData)  # as.simMat checked.
 temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
+}
+\seealso{
+\code{\link{getEnsList}}
 }
 
