@@ -17,7 +17,7 @@ getEnsList(simMat, temperatures, MaxIt = 1000, m = 5)
 \item{m}{maxiumnum number of time a node can be visited during random walks}
 }
 \value{
-a numeric vector of length n representing temperatures sampled.
+a list of ensemble matrices
 }
 \description{
 generating a list of ensemble matrices based on the similarity matrix and temperatures

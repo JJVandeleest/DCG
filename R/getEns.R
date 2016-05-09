@@ -15,7 +15,7 @@
 #' An ensemble matrix is generated at each temperature in which values represent likelihood of two nodes being in the same community.
 #'
 #'
-#' @return a numeric vector of length n representing temperatures sampled.
+#' @return a list of ensemble matrices
 #'
 #' @examples
 #' Sim <- as.simMat(myData)  # as.simMat checked.
