@@ -3,7 +3,7 @@
 \name{plotMultiEigenvalues}
 \alias{plotMultiEigenvalues}
 \title{plot eigenvalues
-\code{plotMultiEigenvalues} plot eigen values into a ".pdf" file.}
+\code{plotMultiEigenvalues} plot eigenvalues to determine number of communities by finding the elbow point}
 \usage{
 plotMultiEigenvalues(Ens_list, mfrow, mar = c(2, 2, 2, 2), line = -1.5,
   cex = 0.5, ...)
@@ -26,9 +26,15 @@ a \code{pdf} file in the working directory containing all eigenvalue plots
 }
 \description{
 plot eigenvalues
-\code{plotMultiEigenvalues} plot eigen values into a ".pdf" file.
+\code{plotMultiEigenvalues} plot eigenvalues to determine number of communities by finding the elbow point
 }
 \details{
+\code{plotMultiEigenvalues} plot multiple eigenvalue plots. The dark blue colored dots indicate eigenvalue greater than 0.
+Each of the ensemble matrices is decomposed into eigenvalues which is used to determine appropriate number of communities.
+Plotting out eigenvalues allow us to see where the elbow point is.
+The curve starting from the elbow point flatten out. The number of points above (excluding) the elbow point indicates number of communities.
+
+
 \code{mfrow} determines the arrangement of multiple plots. It takes the form of
 \code{c(nr, nc)} with the first parameter being the number of rows and
 the second parameter being the number of columns. When deciding parameters for mfrow,
@@ -50,5 +56,8 @@ Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 
 plotMultiEigenvalues(Ens_list = Ens_list, mfrow = c(10, 2), mar = c(1, 1, 1, 1))
 
+}
+\seealso{
+\code{\link(plotCLUSTERS)}, \code{\link{getEnsList}}
 }
 

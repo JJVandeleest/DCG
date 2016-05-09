@@ -1,5 +1,5 @@
 #' plot eigenvalues
-#' \code{plotMultiEigenvalues} plot eigen values into a ".pdf" file.
+#' \code{plotMultiEigenvalues} plot eigenvalues to determine number of communities by finding the elbow point
 #'
 #' @param Ens_list a list in which elements are numeric vectors representing eigenvalues.
 #' @param mfrow A vector of the form \code{c(nr, nc)} passed to \code{\link{par}}.
@@ -7,13 +7,21 @@
 #' @param line plotting parameters with useful defaults (\code{\link{par}})
 #' @param cex plotting parameters with useful defaults (\code{\link{par}})
 #' @param ... further plotting parameters
-#' @details \code{mfrow} determines the arrangement of multiple plots. It takes the form of
+#' @details
+#' \code{plotMultiEigenvalues} plot multiple eigenvalue plots. The dark blue colored dots indicate eigenvalue greater than 0.
+#' Each of the ensemble matrices is decomposed into eigenvalues which is used to determine appropriate number of communities.
+#' Plotting out eigenvalues allow us to see where the elbow point is.
+#' The curve starting from the elbow point flatten out. The number of points above (excluding) the elbow point indicates number of communities.
+#'
+#'
+#' \code{mfrow} determines the arrangement of multiple plots. It takes the form of
 #' \code{c(nr, nc)} with the first parameter being the number of rows and
 #' the second parameter being the number of columns. When deciding parameters for mfrow,
 #' one should take into considerations size of the plotting device and number of plots.
 #' For example, there are 20 plots, mfrow can be set to \code{c(4, 5)} or \code{c(2, 10)}
 #' depending on the size and shape of the plotting area.
 #' @return a \code{pdf} file in the working directory containing all eigenvalue plots
+#' @seealso \code{\link(plotCLUSTERS)}, \code{\link{getEnsList}}
 #'
 #' @examples
 #' Sim <- as.simMat(myData)
@@ -44,7 +52,7 @@ plotMultiEigenvalues <- function(Ens_list,
     Eigenvalues = eigenvalue_list[[i]]
     n = length(Eigenvalues)
     COLOR = rep("black",n)
-    COLOR[which(Eigenvalues > 0)] = "red"
+    COLOR[which(Eigenvalues > 0)] = "dark blue"
     plot(Eigenvalues,
          type = "b",
          pch = 20,
