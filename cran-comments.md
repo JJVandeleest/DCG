@@ -9,7 +9,7 @@ This is new submission.
 There were no ERRORs or WARNINGs.
 
 There were 1 NOTE when checking package dependencies.
-* New submission
+* No repository set, so cyclic dependency check skipped
 
 
 ## Reverse dependencies
