@@ -22,7 +22,18 @@
 #' depending on the size and shape of the plotting area.
 #' @return a \code{pdf} file in the working directory containing all eigenvalue plots
 #' @seealso \code{\link{plotCLUSTERS}}, \code{\link{getEnsList}}
+#' @references
+#' Fushing, H., & McAssey, M. P. (2010).
+#' Time, temperature, and data cloud geometry.
+#' Physical Review E, 82(6), 061110.
 #'
+#' Chen, C., & Fushing, H. (2012).
+#' Multiscale community geometry in a network and its application.
+#' Physical Review E, 86(4), 041120.
+#'
+#' Fushing, H., Wang, H., VanderWaal, K., McCowan, B., & Koehl, P. (2013).
+#' Multi-scale clustering by building a robust and self correcting ultrametric topology on data points.
+#' PloS one, 8(2), e56259.
 #' @examples
 #' Sim <- as.simMat(myData)
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
