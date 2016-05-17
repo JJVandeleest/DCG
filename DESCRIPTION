@@ -14,8 +14,7 @@ Description: Data cloud geometry (DCG) applies random walks in finding community
 License: GPL (>= 2)
 Copyright: Fushing Lab & McCowan Lab, University of California, Davis
 Imports:
-    stats,
-    grDevices
+    stats
 LazyData: TRUE
 Suggests:
     testthat,
