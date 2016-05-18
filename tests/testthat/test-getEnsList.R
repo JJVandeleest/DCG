@@ -1,6 +1,6 @@
 context("get Ensemble matrices for each temperature")
 
-Sim <- as.simMat(myData)  # as.simMat checked.
+Sim <- as.simMat(Data = monkeyGrooming, weighted = TRUE)  # as.simMat checked.
 temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 

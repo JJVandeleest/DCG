@@ -18,7 +18,7 @@
 #' @return a list of ensemble matrices
 #'
 #' @examples
-#' Sim <- as.simMat(myData)  # as.simMat checked.
+#' Sim <- as.simMat(monkeyGrooming, weighted = TRUE)  # as.simMat checked.
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 #' \dontrun{
 #' # Note: It takes a while to run the getEnsList example.

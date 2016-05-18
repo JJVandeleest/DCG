@@ -28,6 +28,6 @@ Note, when using a 3-column edgelist (e.g. a weighted edgelist) to represent raw
 sum of the frequencies will be taken to represent the freqency of interactions between this unique dyad. A warning message will prompt your attention to the accuracy of your raw data when duplicated dyads were found in a three-column edgelist.
 }
 \examples{
-simmatrix <- as.simMat(myData)
+simmatrix <- as.simMat(monkeyGrooming, weighted = TRUE)
 }
 

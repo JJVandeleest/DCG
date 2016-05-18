@@ -28,7 +28,7 @@
 #' Multi-scale clustering by building a robust and self correcting ultrametric topology on data points.
 #' PloS one, 8(2), e56259.
 #' @examples
-#' Sim <- as.simMat(myData)  # as.simMat checked.
+#' Sim <- as.simMat(monkeyGrooming, weighted = TRUE)  # as.simMat checked.
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 #' @export
 

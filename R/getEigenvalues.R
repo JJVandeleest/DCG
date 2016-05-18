@@ -5,7 +5,7 @@
 #'
 #' @return a list of \code{eigenvalues} for each of the ensemble matrix in the ensemble matrices list.
 # #' @examples
-# #' Sim <- as.simMat(myData)
+# #' Sim <- as.simMat(monkeyGrooming, weighted = TRUE)
 # #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 # #' \dontrun{
 # #' # for illustration only. skip CRAN check because it ran forever.

@@ -31,7 +31,7 @@ It is recommended to try out 20 - 30 temperatures to allow for a thorough explor
 A range of temperatures which lead to stable community structures should be considered as reliable. The temperature in the middle of the range should be selected.
 }
 \examples{
-Sim <- as.simMat(myData)  # as.simMat checked.
+Sim <- as.simMat(monkeyGrooming, weighted = TRUE)  # as.simMat checked.
 temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 }
 \references{

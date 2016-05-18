@@ -24,9 +24,9 @@ DCG package works on similarity matrices. It required the raw data to be an edge
 
 ```{r}
 library(DCG)
-head(myData)
+head(monkeyGrooming)
 
-Sim <- as.simMat(myData)
+Sim <- as.simMat(monkeyGrooming, weighted = TRUE)
 
 
 ```

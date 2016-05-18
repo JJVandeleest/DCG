@@ -32,7 +32,7 @@ In order to prevent random walks being stucked in a locale, the parameter \code{
 An ensemble matrix is generated at each temperature in which values represent likelihood of two nodes being in the same community.
 }
 \examples{
-Sim <- as.simMat(myData)  # as.simMat checked.
+Sim <- as.simMat(monkeyGrooming, weighted = TRUE)  # as.simMat checked.
 temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 \dontrun{
 # Note: It takes a while to run the getEnsList example.

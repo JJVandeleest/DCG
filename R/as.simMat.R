@@ -15,7 +15,7 @@
 #'
 #'
 #' @examples
-#' simmatrix <- as.simMat(myData)
+#' simmatrix <- as.simMat(monkeyGrooming, weighted = TRUE)
 #' @export
 
 as.simMat = function(Data, weighted = FALSE){

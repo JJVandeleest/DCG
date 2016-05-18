@@ -35,7 +35,7 @@
 #' Multi-scale clustering by building a robust and self correcting ultrametric topology on data points.
 #' PloS one, 8(2), e56259.
 #' @examples
-#' Sim <- as.simMat(myData)
+#' Sim <- as.simMat(monkeyGrooming, weighted = TRUE)
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 #' \dontrun{
 #' # for illustration only. skip CRAN check because it ran forever.
