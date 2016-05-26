@@ -20,13 +20,14 @@ To install "DCG" package in R, you need to put the package file in your working 
 
 #### Importing data
 
-DCG package works on similarity matrices. It required the raw data to be an edgelist or a matrix. DCG is designed for undirected networks, i.e. where the direction of the interaction doesn’t matter. The function `as.simMat` is used to convert the raw data to a similarity matrix whose values range from 0 to 1 by dividing values in the raw matrix by the maximum value of the matrix. You could assess help for all functions by running `?functionName`, for example, `?as.simMat`. 
+DCG package works on similarity matrices. It required the raw data to be an edgelist or a matrix. DCG is designed for undirected networks, i.e. where the direction of the interaction doesn’t matter. Therefore, we use `as.symmetricAdjacencyMatrix` to convert the raw data (an edgelist or a matrix) to a symmetric adjacency matrix. `as.SimilarityMatrix` further converts the symmetric adjacency matrix to a similarity matrix whose values range from 0 to 1 by dividing values in the raw matrix by the maximum value of the matrix. You could assess help for all functions by running `?functionName`, for example, `?as.symmetricAdjacencyMatrix`. 
 
 ```{r}
 library(DCG)
 head(monkeyGrooming)
+symmetricAdjacencyMatrix <- as.symmetricAdjacencyMatrix(monkeyGrooming, weighted = TRUE, rule = "weak")
 
-Sim <- as.simMat(monkeyGrooming, weighted = TRUE)
+Sim <- as.SimilarityMatrix(symmetricAdjacencyMatrix)
 
 
 ```

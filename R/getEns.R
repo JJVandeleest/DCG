@@ -17,8 +17,9 @@
 #'
 #' @return a list of ensemble matrices
 #'
-#' @examples
-#' Sim <- as.simMat(monkeyGrooming, weighted = TRUE)  # as.simMat checked.
+#' @example
+#' symmetricMatrix <- as.symmetricAdjacencyMatrix(monkeyGrooming, weighted = TRUE, rule = "weak")
+#' Sim <- as.SimilarityMatrix(symmetricMatrix)
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 #' \dontrun{
 #' # Note: It takes a while to run the getEnsList example.
@@ -43,9 +44,13 @@
 #' @export
 
 
-
-
 getEnsList <- function(simMat, temperatures, MaxIt = 1000, m = 5) {
+  if (!isSymmetric(simMat)) {
+    warning("Asymmetric matrix should not be used.
+            DCG is designed to find clusters for undirected network.
+            You'll be responsible for interpreting the results on assymetric matrix,
+            and use it at your own risks.")
+  }
   ens_list <- lapply(temperatures, function(x) getEns(simMat, x, MaxIt = MaxIt, m = m))
   return(ens_list)
 }

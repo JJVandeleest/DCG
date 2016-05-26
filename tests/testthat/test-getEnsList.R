@@ -1,8 +1,14 @@
 context("get Ensemble matrices for each temperature")
 
-Sim <- as.simMat(Data = monkeyGrooming, weighted = TRUE)  # as.simMat checked.
+SymAdjacencyMatrix <- as.symmetricAdjacencyMatrix(Data = monkeyGrooming, weighted = TRUE, rule = "weak")  # as.simMat checked.
+Sim <- as.SimilarityMatrix(SymAdjacencyMatrix)  # as.simMat checked.
 temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
+
+test_that("A warning raised if input is not symmetric", {
+  assymetricMatrix <- matrix(1:9, 3, 3)
+  expect_warning(getEnsList(assymetricMatrix, temperatures, MaxIt = 5, m = 5))
+})
 
 
 

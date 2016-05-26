@@ -32,8 +32,9 @@
 #' Multi-scale clustering by building a robust and self correcting ultrametric topology on data points.
 #' PloS one, 8(2), e56259.
 #' @export
-#' @examples
-#' Sim <- as.simMat(monkeyGrooming, weighted = TRUE)
+#' @example
+#' symmetricMatrix <- as.symmetricAdjacencyMatrix(monkeyGrooming, weighted = TRUE, rule = "weak")
+#' Sim <- as.SimilarityMatrix(symmetricMatrix)
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 #' \dontrun{
 #' # for illustration only. skip CRAN check because it ran forever.

@@ -1,4 +1,3 @@
-# to do: add temperature method: normal, exponential, etc...
 #' generate temperatures
 #' \code{temperatureSample} generate tempatures based on either random or fixed intervals
 #'
@@ -28,7 +27,8 @@
 #' Multi-scale clustering by building a robust and self correcting ultrametric topology on data points.
 #' PloS one, 8(2), e56259.
 #' @examples
-#' Sim <- as.simMat(monkeyGrooming, weighted = TRUE)  # as.simMat checked.
+#' symmetricMatrix <- as.symmetricAdjacencyMatrix(monkeyGrooming, weighted = TRUE, rule = "weak")
+#' Sim <- as.SimilarityMatrix(symmetricMatrix)
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 #' @export
 
