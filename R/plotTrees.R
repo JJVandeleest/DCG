@@ -31,8 +31,7 @@
 #' Fushing, H., Wang, H., VanderWaal, K., McCowan, B., & Koehl, P. (2013).
 #' Multi-scale clustering by building a robust and self correcting ultrametric topology on data points.
 #' PloS one, 8(2), e56259.
-#' @export
-#' @example
+#' @examples
 #' symmetricMatrix <- as.symmetricAdjacencyMatrix(monkeyGrooming, weighted = TRUE, rule = "weak")
 #' Sim <- as.SimilarityMatrix(symmetricMatrix)
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
@@ -45,6 +44,7 @@
 #' Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 #' }
 #' plotCLUSTERS(EnsList = Ens_list, mfrow = c(2, 10), mar = c(1, 1, 1, 1))
+#' @export
 
 
 plotCLUSTERS <- function(EnsList, mfrow,

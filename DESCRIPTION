@@ -1,7 +1,7 @@
 Package: DCG
 Type: Package
 Title: Data Cloud Geometry (DCG): Using Random Walks to Find Community Structure in Social Network Analysis
-Version: 0.90
+Version: 0.91
 Date: 2016-05-09
 Authors@R: c(person("Chen", "Chen", role = "aut"),
   person("Jian", "Jin", email = "jinjian.pku@gmail.com", role = c("aut", "cre")),

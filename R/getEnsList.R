@@ -1,5 +1,5 @@
-
 #' generating a list of ensemble matrices based on the similarity matrix and temperatures
+#'
 #' \code{getEnsList} get ensemble matrices from given similarity matrix at all temperatures
 #'
 #' @param simMat a similarity matrix
@@ -17,7 +17,7 @@
 #'
 #' @return a list of ensemble matrices
 #'
-#' @example
+#' @examples
 #' symmetricMatrix <- as.symmetricAdjacencyMatrix(monkeyGrooming, weighted = TRUE, rule = "weak")
 #' Sim <- as.SimilarityMatrix(symmetricMatrix)
 #' temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
@@ -29,6 +29,7 @@
 #' # for CRAN check only
 #' Ens_list <- getEnsList(Sim, temperatures, MaxIt = 5, m = 5)
 #' }
+#'
 #' @references
 #' Fushing, H., & McAssey, M. P. (2010).
 #' Time, temperature, and data cloud geometry.
@@ -41,6 +42,7 @@
 #' Fushing, H., Wang, H., VanderWaal, K., McCowan, B., & Koehl, P. (2013).
 #' Multi-scale clustering by building a robust and self correcting ultrametric topology on data points.
 #' PloS one, 8(2), e56259.
+#'
 #' @export
 
 

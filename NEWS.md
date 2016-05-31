@@ -1,3 +1,4 @@
-# DCG 0.90
+# DCG 0.91
 
-* This is the first version of DCG.
+* Importing data. When importing network data as a similarity matrix, 
+network data (edgelist or matrix) first gets transformed into a undirected adjacency matrix. Then the adjacency matrix gets transformed into a similarity matrix.

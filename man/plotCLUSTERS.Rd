@@ -40,7 +40,8 @@ For example, there are 20 cluster plots, mfrow can be set to \code{c(4, 5)} or \
 depending on the size and shape of the plotting area.
 }
 \examples{
-Sim <- as.simMat(monkeyGrooming, weighted = TRUE)
+symmetricMatrix <- as.symmetricAdjacencyMatrix(monkeyGrooming, weighted = TRUE, rule = "weak")
+Sim <- as.SimilarityMatrix(symmetricMatrix)
 temperatures <- temperatureSample(start = 0.01, end = 20, n = 20, method = 'random')
 \dontrun{
 # for illustration only. skip CRAN check because it ran forever.

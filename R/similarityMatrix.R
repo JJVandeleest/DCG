@@ -33,10 +33,9 @@
 #' interactions between this unique dyad.
 #' A warning message will prompt your attention to the accuracy of your
 #' raw data when duplicated dyads were found in a three-column edgelist.
-#'
-#'
-#' @example
+#' @examples
 #' symmetricMatrix <- as.symmetricAdjacencyMatrix(monkeyGrooming, weighted = TRUE, rule = "weak")
+#'
 #' @export
 
 as.symmetricAdjacencyMatrix = function(Data, weighted = FALSE, rule = "weak"){
@@ -69,14 +68,12 @@ as.symmetricAdjacencyMatrix = function(Data, weighted = FALSE, rule = "weak"){
 
 
 #' Convert a matrix to a similarity matrix.
-#' \code{as.SimilarityMatrix} convert an adjacency matrix to
-#' a similarity matrix.
+#' \code{as.SimilarityMatrix} convert an adjacency matrix to a similarity matrix.
 #' @param mat a symmetric adjacency matrix
 #'
 #' @return a similarity matrix.
 #'
-#'
-#' @example
+#' @examples
 #' symmetricMatrix <- as.symmetricAdjacencyMatrix(monkeyGrooming, weighted = TRUE, rule = "weak")
 #' similarityMatrix <- as.SimilarityMatrix(symmetricMatrix)
 #'
