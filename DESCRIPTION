@@ -21,6 +21,7 @@ Suggests:
     knitr,
     rmarkdown,
     devtools,
-    lattice
+    lattice,
+    png
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
