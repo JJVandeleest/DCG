@@ -56,13 +56,9 @@ Ens_list <- getEnsList(simMat = Sim, temperatures = temperatures, MaxIt = 5, m =
 
 The process of transforming similarity matrix into a list of ensemble matrices is illustrated in the following flow chart. 
 ```{r fig.width=6, fig.height=4,echo=FALSE}
-library(png)
-library(grid)
-imgStep1 <- readPNG("./step1.png")
-grid.raster(imgStep1)
+imgStep1 <- png::readPNG("./step1.png")
+grid::grid.raster(imgStep1)
 ```
-
-
 
 
 #### Generating eigenvalue plots
@@ -70,10 +66,8 @@ grid.raster(imgStep1)
 The appropriate number of clusters is determined by examining the eigenvalue plots. The function `plotMultiEigenvalues` is used to plot eigenvalues corresponding to each ensemble matrix in the list of ensemble matrix (`Ens_List`). These plots show the approximate number of clusters. Red dots connected by a red line represent a cluster. The plot below shows two red lines that connect three red dots on the left, which indicates the presence of two clusters.
 
 ```{r fig.width=6, fig.height=4,echo=FALSE}
-library(png)
-library(grid)
-imgEigenvalue <- readPNG("./eigenvalueplot-example.png")
-grid.raster(imgEigenvalue)
+imgEigenvalue <- png::readPNG("./eigenvalueplot-example.png")
+grid::grid.raster(imgEigenvalue)
 ```
 
 
@@ -95,10 +89,8 @@ Note, the plots in your "`eigenvalue_plots.pdf`" file look messy because we ran 
 The process generating eigenvalue plots from ensemble matrices is shown in the flow chart below.
 
 ```{r fig.width=6, fig.height=4,echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("./step2.png")
-grid.raster(img)
+img <- png::readPNG("./step2.png")
+grid::grid.raster(img)
 ```
 
 
