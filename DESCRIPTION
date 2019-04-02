@@ -5,14 +5,14 @@ Version: 0.9.3
 Date: 2019-04-03
 Authors@R: c(person("Chen", "Chen", role = "aut"),
   person("Jian", "Jin", email = "jinjian.pku@gmail.com", role = "aut"), 
-  person("Jessica", "Vandeleest", email = "vandelee@ucdavis.edu", role c("aut", "cre")),
+  person("Jessica", "Vandeleest", email = "vandelee@ucdavis.edu", role = c("aut", "cre")),
   person("Brianne", "Beisner", role = "aut"),
   person("Brenda", "McCowan", role = c("aut", "cph")),
   person("Hsieh", "Fushing", role = c("aut", "cph")))
 Depends:
     R (>= 2.14.0)
 Description: Data cloud geometry (DCG) applies random walks in finding community structures for social networks. 
-Fushing, VanderWaal, McCowan, Koehl (2013) <https://doi.org/10.1371/journal.pone.0056259>
+Fushing, VanderWaal, McCowan, Koehl (2013) <https: //doi.org/10.1371/journal.pone.0056259>
 License: GPL (>= 2)
 Copyright: Fushing Lab & McCowan Lab, University of California, Davis
 Imports:
@@ -25,5 +25,5 @@ Suggests:
     devtools,
     lattice,
     png
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr
