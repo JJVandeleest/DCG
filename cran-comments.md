@@ -1,5 +1,5 @@
 ## Submission
-This is an update. Package maintainer is changed.
+This is an update. Package maintainer is changed and reference is added.
 
 ## Test environments
 * local Windows 7 install, R 3.5.2
@@ -8,6 +8,5 @@ This is an update. Package maintainer is changed.
 ## R CMD check results
 There were no ERRORs, WARNINGs, or NOTES.
 
-
 ## Reverse dependencies
-This is no package depend on DCG.
+There are no packages dependent on DCG.
